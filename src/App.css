@@ -14,9 +14,13 @@ body {
   font-family: "LXGW WenKai Mono TC", "Roboto", sans-serif;
   width: 100%;
   min-height: 100vh;
+  cursor: none;
 }
 
 a {
   text-decoration: none;
-  cursor: pointer;
+}
+
+a:hover {
+  cursor: none;
 }

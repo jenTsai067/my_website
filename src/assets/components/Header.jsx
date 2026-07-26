@@ -39,7 +39,7 @@ function Header() {
         ))}
       </nav>
       <div
-        className={`fixed inset-0 w-full h-screen h-dvh bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300 md:hidden z-40 ${
+        className={`fixed inset-0 w-full h-screen bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300 md:hidden z-40 ${
           isOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
