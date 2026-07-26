@@ -11,10 +11,10 @@ function ProjectCard({
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="w-full max-w-[960px] bg-white rounded-3xl overflow-hidden flex flex-col md:flex-row items-stretch border border-gray-100 shadow-sm cursor-none transition-all duration-300 hover:shadow-lg hover:scale-[1.1] hover:transition-all"
+      className="w-full max-w-240 bg-white rounded-3xl overflow-hidden flex flex-col md:flex-row items-stretch border border-gray-100 shadow-sm cursor-none transition-all duration-300 hover:shadow-lg hover:scale-[1.1] hover:transition-all"
     >
       {/* Cover */}
-      <div className="w-full md:w-[360px] lg:w-[400px] shrink-0 h-[220px] md:h-auto">
+      <div className="w-full md:w-90 lg:w-100 shrink-0 h-55 md:h-auto">
         <img
           src={imgUrl}
           alt={imgAlt || title}

@@ -6,9 +6,9 @@ function Intro() {
       <img
         src="./images/Profile.PNG"
         alt="selfie"
-        className="w-[200px] h-[200px] rounded-[50%]"
+        className="w-50 h-50 rounded-[50%]"
       />
-      <div className="flex flex-col gap-2 md:max-w-[500px] lg:max-w-[600px]">
+      <div className="flex flex-col gap-2 md:max-w-125 lg:max-w-150">
         <h2 className="text-[1.5rem]">
           About Me: <span className="text-main-blue font-semibold">蔡宜蓁</span>
         </h2>
@@ -16,7 +16,7 @@ function Intro() {
           好的專案應同時兼備視覺設計與功能性，我立志打造於能讓使用者
           <span className="inline-block relative">
             「玩中學」
-            <span className="relative block -top-2 left-1 w-[72px] h-[10px] bg-main-blue opacity-40"></span>
+            <span className="relative block -top-2 left-1 w-18 h-2.5 bg-main-blue opacity-40"></span>
           </span>
           之遊戲體驗，曾參與過多次教育性質之活動與競賽，將複雜的問題簡化來幫助學習。
         </p>

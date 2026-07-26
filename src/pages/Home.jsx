@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "../App.css";
 import Header from "../assets/components/Header";
+import Footer from "../assets/components/Footer";
 import ProjectCard from "../assets/components/ProjectCard";
 import Intro from "./Intro";
 import Skill from "./Skill";
@@ -80,9 +81,9 @@ function Home() {
         {windowWidth >= 1024 ? (
           <motion.div
             style={{ clipPath }}
-            className="w-full flex flex-col gap-12 pt-32 pb-8 bg-white bg-[radial-gradient(#d1d5db_1.5px,transparent_1.5px)] [background-size:24px_24px]"
+            className="w-full flex flex-col gap-12 pt-32 pb-8 bg-white bg-[radial-gradient(#d1d5db_1.5px,transparent_1.5px)] bg-size-[24px_24px]"
           >
-            <div className="w-full h-full py-12 lg:py-0 lg:min-h-[90vh] md:[mask-image:linear-gradient(to_bottom,transparent_0%,black_5%)] flex flex-col justify-center">
+            <div className="w-full h-full py-12 lg:py-0 lg:min-h-[90vh] md:mask-[linear-gradient(to_bottom,transparent_0%,black_5%)] flex flex-col justify-center">
               {/* Intro */}
               <Intro />
               {/* Skill */}
@@ -90,7 +91,7 @@ function Home() {
             </div>
           </motion.div>
         ) : (
-          <div className="w-full h-full py-12 lg:py-0 lg:min-h-[90vh] flex flex-col justify-center bg-white bg-[radial-gradient(#d1d5db_1.5px,transparent_1.5px)] [background-size:24px_24px]">
+          <div className="w-full h-full py-12 lg:py-0 lg:min-h-[90vh] flex flex-col justify-center bg-white bg-[radial-gradient(#d1d5db_1.5px,transparent_1.5px)] bg-size-[24px_24px]">
             {/* Intro */}
             <Intro />
             {/* Skill */}
@@ -115,16 +116,12 @@ function Home() {
             />
           ))}
         </div>
-        <button className="mt-4 w-[250px] px-4 py-6 rounded-[48px] bg-main-blue text-white  hover:bg-dark-blue hover:transition-all">
+        <button className="mt-4 w-62.5 px-4 py-6 rounded-[48px] bg-main-blue text-white  hover:bg-dark-blue hover:transition-all">
           View All
         </button>
       </section>
       {/* Footer */}
-      <footer className="w-full h-[120px] bg-main-blue flex flex-col justify-center items-center">
-        <p className="text-white font-mono text-sm md:text-base relative z-10">
-          Email: jen.940607@gmail.com
-        </p>
-      </footer>
+      <Footer />
       {/* Cursor */}
       {isHoveredProject ? (
         <LinkBtnCursor isHovered={isHoveredProject} />
