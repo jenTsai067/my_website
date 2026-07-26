@@ -15,7 +15,7 @@ function Skill() {
         <SkillCard
           imgUrl={"./images/pen-tool-icon.png"}
           imgAlt={"Document"}
-          descriptionC={"插畫設計"}
+          descriptionC={"插畫"}
           descriptionE={"Illustration"}
         />
         <SkillCard

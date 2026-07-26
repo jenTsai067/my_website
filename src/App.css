@@ -3,6 +3,7 @@
 
 @theme {
   --color-main-blue: #7a99b4;
+  --color-dark-blue: #536c82;
   --color-light-gray: #cecece;
 }
 
@@ -23,4 +24,18 @@ a {
 
 a:hover {
   cursor: none;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, 0) rotate(360deg);
+  }
+}
+
+.waveBg {
+  animation: spin 15s linear infinite;
+  transform-origin: center center;
 }

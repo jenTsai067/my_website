@@ -1,14 +1,15 @@
 import "../../App.css";
 import { useState } from "react";
 import { RiMenu3Fill, RiCloseLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Project", href: "#" },
-    { name: "About Me", href: "#" },
+    { name: "Home", linkTo: "/" },
+    { name: "Project", linkTo: "/project" },
+    { name: "About Me", linkTo: "/about" },
   ];
 
   return (
@@ -28,14 +29,14 @@ function Header() {
       {/* Nav Section */}
       <nav className="hidden md:flex items-center gap-8 font-medium md:text-base lg:text-[18px]">
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.name}
-            href={link.href}
+            to={link.linkTo}
             className="relative text-black hover:text-main-blue transition-colors duration-300 group py-1"
           >
             {link.name}
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-main-blue transition-all duration-300 group-hover:w-full" />
-          </a>
+          </Link>
         ))}
       </nav>
       <div
@@ -47,15 +48,15 @@ function Header() {
       >
         <nav className="flex flex-col items-center gap-8 text-xl font-medium">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.linkTo}
               onClick={() => setIsOpen(false)}
               className="relative text-white hover:text-main-blue transition-colors duration-300 group py-2"
             >
               {link.name}
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-main-blue transition-all duration-300 group-hover:w-full" />
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
