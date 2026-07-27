@@ -5,6 +5,8 @@
   --color-main-blue: #7a99b4;
   --color-dark-blue: #536c82;
   --color-light-gray: #cecece;
+
+  --font-roboto: "Roboto", sans-serif;
 }
 
 * {

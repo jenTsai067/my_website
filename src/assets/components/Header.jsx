@@ -1,10 +1,21 @@
 import "../../App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RiMenu3Fill, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { name: "Home", linkTo: "/" },
@@ -40,7 +51,7 @@ function Header() {
         ))}
       </nav>
       <div
-        className={`fixed inset-0 w-full h-screen bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300 md:hidden z-40 ${
+        className={`fixed top-0 left-0 w-full h-dvh bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300 md:hidden z-40 ${
           isOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
