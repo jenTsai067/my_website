@@ -8,35 +8,10 @@ import Skill from "./Skill";
 import MotionBlurCursor from "../assets/components/MotionBlurCursor";
 import LinkBtnCursor from "../assets/components/LinkBtnCursor";
 import { motion, useScroll, useTransform } from "framer-motion";
-
-const PROJECTS_DATA = [
-  {
-    id: 1,
-    title: "證券投資 APP UI Redesign",
-    description:
-      "微幅調整現有 APP 資訊佈局、卡片呈現方式以及色彩規劃，並透過新增視覺化標籤等，重新建構介面設計。",
-    imgUrl: "./images/project1.png",
-    tags: ["APP", "Side Project", "Proposal"],
-  },
-  {
-    id: 2,
-    title: "智慧醫療 App 流程/設計提案",
-    description:
-      "規劃智慧穿戴裝置以及APP監測系統，設計APP綁定智慧穿戴裝置、查看監測數據與異常通知情境流程、Wireframe與GUI。",
-    imgUrl: "./images/project2.png",
-    tags: ["APP", "Side Project", "Proposal"],
-  },
-  {
-    id: 3,
-    title: "天堂的禮物 HEAVEN BANK",
-    description:
-      "Unblock獨角獸設計師MVP設計競賽獲獎作品。以服務設計手法介入殯葬業的生前規劃流程，並執行網站規劃。",
-    imgUrl: "./images/project3.png",
-    tags: ["Web", "Side Project", "Proposal"],
-  },
-];
+import { data } from "react-router-dom";
 
 function Home() {
+  const [data, setData] = useState([]);
   const [isHoveredProject, setIsHoveredProject] = useState(false);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -64,6 +39,27 @@ function Home() {
 
     // Clean up event listener when the component unmounts
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    fetch("./data/project.json")
+      .then((response) => response.json())
+      .then((rawData) => {
+        const formattedArray = Object.entries(rawData).map(([id, item]) => ({
+          id,
+          title: item.title,
+          description: item.description,
+          imgUrl: item.imgUrl,
+          tags: item.tags || [],
+        }));
+
+        const filteredData = formattedArray.filter((item) =>
+          item.tags.includes("精選作品"),
+        );
+
+        setData(filteredData);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   return (
@@ -103,7 +99,7 @@ function Home() {
       <section className="w-full px-8 py-12 flex flex-col items-center gap-4  ">
         <h2 className="text-[1.5rem] font-bold mb-4">What I Create</h2>
         <div className="w-full flex flex-col items-center gap-8">
-          {PROJECTS_DATA.map((project) => (
+          {data.map((project) => (
             <ProjectCard
               key={project.id}
               title={project.title}
